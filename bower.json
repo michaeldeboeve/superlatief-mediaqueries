@@ -1,0 +1,27 @@
+{
+  "name": "superlatief-mediaqueries",
+  "description": "A set of mediaqueries for sass and stylus",
+  "version": "0.0.1",
+  "main": "",
+  "authors": [
+    "Michaël de Boevé"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "mediaqueries",
+    "sass",
+    "scss",
+    "stylus",
+    "superlatief",
+    "robonkey"
+  ],
+  "homepage": "https://github.com/michaeldeboeve/superlatief-mediaqueries",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
