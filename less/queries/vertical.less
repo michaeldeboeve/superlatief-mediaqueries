@@ -1,0 +1,18 @@
+// Vertical Mediaqueries
+.aboveHeight(@min, @ruleset) {
+  @media @bpscreen (min-height: @min) {
+    @ruleset();
+  }
+}
+
+.belowHeight(@max, @ruleset) {
+  @media @bpscreen (max-height: @max) {
+    @ruleset();
+  }
+}
+
+.betweenHeight(@min, @max, @ruleset) {
+  @media @bpscreen (min-height: @min) and (max-height: @max) {
+    @ruleset();
+  }
+}

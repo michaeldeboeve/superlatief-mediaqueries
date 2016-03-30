@@ -1,0 +1,16 @@
+// Vertical Mediaqueries
+aboveHeight($min, $type = $bp-screen)
+  +bp($min, $type, $mq: 'min-height')
+    {block}
+
+belowHeight($max, $type = $bp-screen)
+  +bp($max, $type, $mq: 'max-height')
+    {block}
+
+betweenHeights($min, $max, $type = $bp-screen)
+  if $type != ''
+    $type: $type + ' and';
+
+  $query = $type + ' (min-height: ' + $min + ') and (max-height: ' + $max + ')';
+  @media $query
+    {block}

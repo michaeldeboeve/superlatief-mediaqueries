@@ -1,0 +1,26 @@
+// Resolution Mediaqueries
+.hdpi(@ratio: 1.5, @ruleset: default) {
+  & when (isnumber(@ratio)) {
+    @media
+    (-webkit-min-device-pixel-ratio: @ratio),
+    (min-resolution: (round(@ratio * 96dpi))) {
+      @ruleset();
+    }
+  }
+
+  & when (isruleset(@ratio)) {
+    @media
+    (-webkit-min-device-pixel-ratio: 1.5),
+    (min-resolution: 144dpi) {
+      @ratio();
+    }
+  }
+}
+
+.x2(@ruleset: default) {
+  .hdpi(2, @ruleset);
+}
+
+.x3(@ruleset: default) {
+  .hdpi(3, @ruleset);
+}

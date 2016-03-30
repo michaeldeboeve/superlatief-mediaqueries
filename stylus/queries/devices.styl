@@ -1,0 +1,29 @@
+device($min, $max, $mode = null)
+  $viewports = portrait, landscape;
+  if $mode in $viewports
+    @media only screen and (min-device-width: $min) and (max-device-width: $max) and (orientation: $mode)
+      {block}
+  else
+    @media only screen and (min-device-width: $min) and (max-device-width: $max)
+      {block}
+
+
+
+iphone6plus($mode = null)
+  +device(414px, 736px, $mode)
+    {block}
+
+
+iphone6($mode = null)
+  +device(375px, 667px, $mode)
+    {block}
+
+
+iphone5($mode = null)
+  +device(320px, 568px, $mode)
+    {block}
+
+
+iphone4($mode = null)
+  +device(320px, 480px, $mode)
+    {block}

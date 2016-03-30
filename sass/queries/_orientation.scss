@@ -1,0 +1,12 @@
+// Device Orientation Mediaqueries
+@mixin orientation($orientation) {
+  @media (orientation: $orientation) { @content; }
+}
+
+@mixin landscape() {
+  @include orientation(landscape) { @content; }
+}
+
+@mixin portrait() {
+  @include orientation(portrait) { @content; }
+}

@@ -1,0 +1,17 @@
+$bp-screen: if(variable-exists(screen), $bp-screen, 'only screen');
+
+// Base Mixin
+@mixin bp($min, $mq: 'max-width', $type: $bp-screen) {
+  @if $type != '' {
+    $type: $type + ' and';
+  }
+
+  $query: '#{$type} (#{$mq}: #{$min})';
+
+  @if type-of($min) == string {
+    $query: $min;
+  }
+  @media #{$query} {
+    @content;
+  }
+}

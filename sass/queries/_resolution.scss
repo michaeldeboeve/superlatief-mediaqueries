@@ -1,0 +1,26 @@
+// Resolution Mediaqueries
+@mixin hdpi($ratio: 1.25) {
+  // $ratios: (
+  //   1.25: 120dpi,
+  //   1.3: 124.8dpi,
+  //   1.5: 144dpi,
+  //   2: 192dpi,
+  //   3: 401dpi
+  // );
+  // $res: map-get($ratios, $ratio);
+  $res: (($ratio * 96) * 1dpi);
+  @media (-webkit-min-device-pixel-ratio: $ratio),
+         (min-resolution: $res) { @content; }
+}
+
+@mixin res($ratio: 1.25) {
+  @include hdpi($ratio) { @content; }
+}
+
+@mixin x2() {
+  @include hdpi(2) { @content; }
+}
+
+@mixin x3() {
+  @include hdpi(3) { @content; }
+}

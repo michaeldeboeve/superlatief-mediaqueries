@@ -1,0 +1,13 @@
+// High Resolution Mediaqueries
+hdpi($ratio = 1.25)
+  $res = (($ratio * 96) * 1dpi);
+  @media (-webkit-min-device-pixel-ratio: $ratio), (min-resolution: $res)
+    {block}
+
+x2()
+  +hdpi(2)
+    {block}
+
+x3()
+  +hdpi(3)
+    {block}

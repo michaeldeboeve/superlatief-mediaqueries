@@ -1,0 +1,36 @@
+.device(@min, @max, @mode:default, @ruleset:default) {
+  & when (iskeyword(@mode)) {
+   @media only screen and (min-device-width: @min) and (max-device-width: @max) and (orientation: @mode) { @ruleset(); }
+  }
+  & when (isruleset(@mode)) {
+    @media only screen and (min-device-width: @min) and (max-device-width: @max) { @mode(); }
+  }
+}
+
+.iphone6plus(@mode:default, @ruleset:default) {
+  @min: 414px;
+  @max: 736px;
+  & when (iskeyword(@mode)) { .device(@min, @max, @mode, { @ruleset(); }) }
+  & when (isruleset(@mode)) { .device(@min, @max, { @mode(); }) }
+}
+
+.iphone6(@mode:default, @ruleset:default) {
+  @min: 375px;
+  @max: 667px;
+  & when (iskeyword(@mode)) { .device(@min, @max, @mode, { @ruleset(); }) }
+  & when (isruleset(@mode)) { .device(@min, @max, { @mode(); }) }
+}
+
+.iphone5(@mode:default, @ruleset:default) {
+  @min: 320px;
+  @max: 568px;
+  & when (iskeyword(@mode)) { .device(@min, @max, @mode, { @ruleset(); }) }
+  & when (isruleset(@mode)) { .device(@min, @max, { @mode(); }) }
+}
+
+.iphone4(@mode:default, @ruleset:default) {
+  @min: 320px;
+  @max: 480px;
+  & when (iskeyword(@mode)) { .device(@min, @max, @mode, { @ruleset(); }) }
+  & when (isruleset(@mode)) { .device(@min, @max, { @mode(); }) }
+}

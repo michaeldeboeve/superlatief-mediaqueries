@@ -1,0 +1,25 @@
+@mixin device($min, $max, $mode: null) {
+  $viewports: (portrait, landscape);
+  @if index($viewports, $mode) {
+    @media only screen and (min-device-width: $min) and (max-device-width: $max) and (orientation: $mode) { @content }
+  } @else {
+    @media only screen and (min-device-width: $min) and (max-device-width: $max) { @content }
+  }
+
+}
+
+@mixin iphone6plus($mode: null) {
+  @include device(414px, 736px, $mode) { @content }
+}
+
+@mixin iphone6($mode: null) {
+  @include device(375px, 667px, $mode) { @content }
+}
+
+@mixin iphone5($mode: null) {
+  @include device(320px, 568px, $mode) { @content }
+}
+
+@mixin iphone4($mode: null) {
+  @include device(320px, 480px, $mode) { @content }
+}

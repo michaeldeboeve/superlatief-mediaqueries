@@ -1,0 +1,12 @@
+// Device Rotation Mediaqueries
+orientation($orientation = landscape)
+  @media (orientation: $orientation)
+    {block}
+
+landscape()
+  +orientation(landscape)
+    {block}
+
+portrait()
+  +orientation(portrait)
+    {block}

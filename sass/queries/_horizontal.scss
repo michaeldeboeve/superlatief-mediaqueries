@@ -1,0 +1,22 @@
+// Horizontal Mediaqueries
+@mixin above($min, $type: $$bp-screen) {
+  @include bp($min, $mq: 'min-width', $type,) {
+    @content;
+  }
+}
+
+@mixin below($max, $type: $$bp-screen) {
+  @include bp($max, $mq: 'max-width', $type) {
+    @content;
+  }
+}
+
+@mixin between($min, $max, $type: $$bp-screen) {
+  @if $type != '' {
+    $type: $type + ' and';
+  }
+  $query: '#{$type} (min-width: #{$min}) and (max-width: #{$max})';
+  @media #{$query} {
+    @content;
+  }
+}

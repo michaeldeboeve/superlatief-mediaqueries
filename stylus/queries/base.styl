@@ -1,0 +1,13 @@
+$bp-screen ?= 'only screen';
+
+// Base Mixin
+bp($min, $mq = 'max-width', $type = $screen)
+  if $type != ''
+    $type: $type + ' and';
+
+  $query = $type + ' (' + $mq + ': ' + $min + ')';
+
+  if typeof($min) is string
+    $query = $min;
+  @media $query
+    {block}

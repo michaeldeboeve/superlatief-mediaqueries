@@ -1,0 +1,18 @@
+// Horizontal Mediaqueries
+.above(@min, @ruleset) {
+  @media @bp-screen (min-width: @min) {
+    @ruleset();
+  }
+}
+
+.below(@max, @ruleset) {
+  @media @bp-screen (max-width: @max) {
+    @ruleset();
+  }
+}
+
+.between(@min, @max, @ruleset) {
+  @media @bp-screen (min-width: @min) and (max-width: @max) {
+    @ruleset();
+  }
+}
