@@ -9,17 +9,17 @@
 
 ###### Sass
 ```sh
-$bp-screen: if(variable-exists(screen), $bp-screen, 'only screen');
+$screen: if(variable-exists(screen), $screen, 'only screen');
 ```
 
 ###### Stulus
 ```sh
-$bp-screen ?= 'only screen';
+$screen ?= 'only screen';
 ```
 
 ###### Less
 ```sh
-@bp-screen: 'only screen';
+@screen: 'only screen';
 ```
 
 
@@ -27,10 +27,10 @@ $bp-screen ?= 'only screen';
 
 ###### Sass
 ```sh
-@mixin bp($min, $mq: 'max-width', $type: $bp-screen) { … }
+@mixin bp($min, $mq: max-width, $type: $screen) { … }
 
 .foo {
-	@include bp(960px, 'min-width', 'only screen') {
+	@include bp($min, $mq: min-width, $type: $screen) {
 		…
 	}
 }
@@ -44,11 +44,11 @@ Shortcuts:
 
 ###### Stulus
 ```sh
-bp($min, $mq = 'max-width', $type = $screen)
+bp($min, $mq = max-width, $type = $screen)
 	…
 
 .foo
-	+bp(960px, 'min-width', 'only screen')
+	+bp(960px, min-width, 'only screen')
 		…
 
 Aliases:
@@ -60,27 +60,29 @@ Aliases:
 
 ###### Less
 ```sh
+.bp(@min, @mq: min-width, @type: @screen, @ruleset: default)
+
+.foo {
+	.bp(960px,min-width, {
+		…
+	})
+}
+
+Aliasses
 .above(@min, { … })
 .below(@max, { … })
 .aboveHeight(@min, { … })
 .belowHeight(@max, { … })
-
-.foo {
-	.above(960px,{
-		…
-	})
-}
 ```
 
-### between(), betweenHeight()
+### between()
 
 ###### Sass
 ```sh
-@mixin between($min, $max, $type: $screen) { … }
-@mixin betweenHeight($min, $max, $type: $screen) { … }
+@mixin between($min, $max, $dimension: width, $type: $screen) { … }
 
 .foo {
-	@include between(960px, 1024px, 'only screen') {
+	@include between(960px, 1024px, width 'only screen') {
 		…
 	}
 }
@@ -88,22 +90,20 @@ Aliases:
 
 ###### Stulus
 ```sh
-between($min, $max, $type: $screen) { … }
-betweenHeight($min, $max, $type: $screen) { … }
+between($min, $max, $dimension = width, $type = $screen) { … }
 	…
 
 .foo
-	+betweenHeight(960px, 1024px, 'only screen')
+	+betweenHeight(960px, 1024px, width, 'only screen')
 		…
 ```
 
 ###### Less
 ```sh
-.between(@min, @max, { … })
-.betweenHeight(@min, @max, { … })
+.between(@min, @max, @dimension:width, @type:@screen, { … })
 
 .foo {
-	.between(960px, 1024px,{
+	.between(960px, 1024px, width{
 		…
 	})
 }

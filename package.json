@@ -1,7 +1,7 @@
 {
   "name": "superlatief-mediaqueries",
-  "version": "0.0.3",
-  "description": "A set of mediaqueries for sass, stylus & lLess",
+  "version": "0.0.4",
+  "description": "A set of mediaqueries for Sass, Stylus & Less",
   "repository": "https://github.com/michaeldeboeve/superlatief-mediaqueries",
   "keywords": [
     "mixins",
