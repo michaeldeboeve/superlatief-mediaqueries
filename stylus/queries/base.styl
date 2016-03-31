@@ -1,9 +1,9 @@
-$bp-screen ?= 'only screen';
+$screen ?= 'only screen';
 
 // Base Mixin
-bp($min, $mq = 'max-width', $type = $screen)
-  if $type != ''
-    $type: $type + ' and';
+bp($min, $mq = max-width, $type = $screen)
+  if $type != '' and $type != null
+    $type = $type + ' and';
 
   $query = $type + ' (' + $mq + ': ' + $min + ')';
 

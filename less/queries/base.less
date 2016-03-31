@@ -1,1 +1,47 @@
-@screen: ~'screen and';
+@screen: 'screen';
+
+.bp(@min, @mq: min-width, @type: @screen, @ruleset: default) {
+  & when (isnumber(@min)) and (isruleset(@mq)) {
+    & when (isstring(@type)) {
+      @query: ~'@{type} and (min-width: @{min})';
+      @media @query { @mq(); }
+    }
+    & when not (isstring(@type)) {
+      @query: ~'(min-width: @{min})';
+      @media @query { @mq(); }
+    }
+  }
+
+  & when (isnumber(@min)) and (iskeyword(@mq)) {
+    & when (isstring(@type)) {
+      @query: ~'@{type} and (@{mq}: @{min})';
+      @media @query { @ruleset(); }
+    }
+    & when not (isstring(@type)) {
+      @query: ~'(@{mq}: @{min})';
+      @media @query { @type(); }
+    }
+  }
+
+  & when (isstring(@min)) and (isruleset(@mq)) {
+    & when (isstring(@type)) {
+      @query: ~'@{type} @{min}';
+      @media @query { @mq(); }
+    }
+    & when not (isstring(@type)) {
+      @query: ~'@{min}';
+      @media @query { @mq(); }
+    }
+  }
+
+  & when (isstring(@min)) and (isstring(@mq)) {
+    & when (isstring(@type)) {
+      @query: ~'@{type} and @{min}';
+      @media @query { @ruleset(); }
+    }
+    & when not (isstring(@type)) {
+      @query: ~'@{mq} and @{min}';
+      @media @query { @type(); }
+    }
+  }
+}

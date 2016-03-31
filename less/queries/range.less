@@ -1,0 +1,33 @@
+// Range Mediaqueries
+.between(@min, @max, @dimension:width, @type:@screen, @ruleset:default) {
+  & when (isruleset(@dimension)) and (isstring(@screen)) {
+    @query: ~'@{screen} and (min-width: @{min}) and (max-width: @{max})';
+    @media @query { @dimension(); }
+  }
+  & when (isruleset(@dimension)) and not (isstring(@screen)) {
+    @query: ~'(min-width: @{min}) and (max-width: @{max})';
+    @media @query { @dimension(); }
+  }
+  & when (isruleset(@type)) and (isstring(@screen)) {
+    & when (@dimension = width) or (@dimension = 'width') {
+      @query: ~'@{screen} and (min-width: @{min}) and (max-width: @{max})';
+      @media @query { @type(); }
+    }
+    & when (@dimension = height) and (@dimension = 'height') {
+      @query: ~'@{screen} and (min-height: @{min}) and (max-height: @{max})';
+      @media @query { @type(); }
+    }
+  }
+  & when (isruleset(@type)) and (isstring(@screen)) {
+    @query: ~'@{screen} and (min-width: @{min}) and (max-width: @{max})';
+    @media @query { @type(); }
+  }
+  & when (isruleset(@type)) and not (isstring(@screen)) {
+    @query: ~'(min-width: @{min}) and (max-width: @{max})';
+    @media @query { @type(); }
+  }
+  & when (isstring(@type)) {
+    @query: ~'@{type} and (min-width: @{min}) and (max-width: @{max})';
+    @media @query { @ruleset(); }
+  }
+}

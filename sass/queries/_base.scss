@@ -1,8 +1,8 @@
-$bp-screen: if(variable-exists(screen), $bp-screen, 'only screen');
+$screen: if(variable-exists(screen), $screen, 'screen');
 
 // Base Mixin
-@mixin bp($min, $mq: 'max-width', $type: $bp-screen) {
-  @if $type != '' {
+@mixin bp($min, $mq: min-width, $type: $screen) {
+  @if $type != '' and $type != null{
     $type: $type + ' and';
   }
 

@@ -1,16 +1,8 @@
 // Horizontal Mediaqueries
-above($min, $type = $bp-screen)
+above($min, $type = $screen)
   +bp($min, $mq = 'min-width', $type)
     {block}
 
-below($min, $type = $bp-screen)
+below($min, $type = $screen)
   +bp($min, $mq = 'max-width', $type)
-    {block}
-
-between($min, $max, $type = $bp-screen)
-  if $type != ''
-    $type: $type + ' and';
-
-  $query = $type + ' (min-width: ' + $min + ') and (max-width: ' + $max + ')';
-  @media $query
     {block}

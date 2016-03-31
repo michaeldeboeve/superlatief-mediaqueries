@@ -1,6 +1,6 @@
 {
   "name": "superlatief-mediaqueries",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A set of mediaqueries for sass, stylus & lLess",
   "repository": "https://github.com/michaeldeboeve/superlatief-mediaqueries",
   "keywords": [

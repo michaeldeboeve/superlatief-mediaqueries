@@ -1,18 +1,28 @@
 // Vertical Mediaqueries
-.aboveHeight(@min, @ruleset) {
-  @media @bpscreen (min-height: @min) {
-    @ruleset();
+.aboveHeight(@min, @type: @screen, @ruleset: default) {
+  & when (isruleset(@type)) {
+    .bp(@min, min-height, @screen, {
+      @type();
+    })
+  }
+
+  & when (isstring(@type)) {
+    .bp(@min, min-height, @type, {
+      @ruleset();
+    })
   }
 }
 
-.belowHeight(@max, @ruleset) {
-  @media @bpscreen (max-height: @max) {
-    @ruleset();
+.belowHeight(@min, @type: @screen, @ruleset: default) {
+  & when (isruleset(@type)) {
+    .bp(@min, max-height, @screen, {
+      @type();
+    })
   }
-}
 
-.betweenHeight(@min, @max, @ruleset) {
-  @media @bpscreen (min-height: @min) and (max-height: @max) {
-    @ruleset();
+  & when (isstring(@type)) {
+    .bp(@min, max-height, @type, {
+      @ruleset();
+    })
   }
 }

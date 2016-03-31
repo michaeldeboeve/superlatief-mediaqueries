@@ -1,18 +1,28 @@
 // Horizontal Mediaqueries
-.above(@min, @ruleset) {
-  @media @bp-screen (min-width: @min) {
-    @ruleset();
+.above(@min, @type: @screen, @ruleset: default) {
+  & when (isruleset(@type)) {
+    .bp(@min, min-width, @screen, {
+      @type();
+    })
+  }
+
+  & when (isstring(@type)) {
+    .bp(@min, min-width, @type, {
+      @ruleset();
+    })
   }
 }
 
-.below(@max, @ruleset) {
-  @media @bp-screen (max-width: @max) {
-    @ruleset();
+.below(@min, @type: @screen, @ruleset: default) {
+  & when (isruleset(@type)) {
+    .bp(@min, max-width, @screen, {
+      @type();
+    })
   }
-}
 
-.between(@min, @max, @ruleset) {
-  @media @bp-screen (min-width: @min) and (max-width: @max) {
-    @ruleset();
+  & when (isstring(@type)) {
+    .bp(@min, max-width, @type, {
+      @ruleset();
+    })
   }
 }

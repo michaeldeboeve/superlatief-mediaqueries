@@ -1,0 +1,10 @@
+// Range Mediaqueries
+@mixin between($min, $max, $dimension: width, $type: $screen) {
+  @if $type != '' and $type != null {
+    $type: $type + ' and';
+  }
+  $query: '#{$type} (min-#{$dimension}: #{$min}) and (max-#{$dimension}: #{$max})';
+  @media #{$query} {
+    @content;
+  }
+}

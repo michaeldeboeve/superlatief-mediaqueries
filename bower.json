@@ -1,7 +1,7 @@
 {
   "name": "superlatief-mediaqueries",
   "description": "A set of mediaqueries for Sass, Stylus & Less",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "",
   "authors": [
     "Michaël de Boevé"
