@@ -5,9 +5,11 @@ bp($min, $mq = max-width, $type = $screen)
   if $type != '' and $type != null
     $type = $type + ' and';
 
-  $query = $type + ' (' + $mq + ': ' + $min + ')';
-
   if typeof($min) is string
-    $query = $min;
+    $query = '%s' % unquote($min);
+  else
+    $query = '%s (%s: %s)' % (unquote($type) unquote($mq) $min);
+
+  foo: $query
   @media $query
     {block}

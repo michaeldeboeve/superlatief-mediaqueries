@@ -1,11 +1,12 @@
 device($min, $max, $mode = null)
-  $viewports = portrait, landscape;
+  $viewports = 'portrait', 'landscape';
   if $mode in $viewports
-    @media only screen and (min-device-width: $min) and (max-device-width: $max) and (orientation: $mode)
-      {block}
+    $query = 'only screen and (min-device-width: %s) and (max-device-width: %s) and (orientation: %s)' % ($min $max unquote($mode));
   else
-    @media only screen and (min-device-width: $min) and (max-device-width: $max)
-      {block}
+    $query = 'only screen and (min-device-width: %s) and (max-device-width: %s)' % ($min $max);
+
+  @media $query
+    {block}
 
 
 

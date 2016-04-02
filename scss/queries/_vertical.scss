@@ -1,12 +1,12 @@
 // Vertical Mediaqueries
 @mixin aboveHeight($min, $type: $screen) {
-   @include bp($min, $mq: 'min-height', $type) {
+   @include bp($min, min-height, $type) {
     @content;
   }
 }
 
 @mixin belowHeight($max, $type: $screen) {
-   @include bp($max, $mq: 'max-height', $type) {
+   @include bp($max, max-height, $type) {
     @content;
   }
 }
