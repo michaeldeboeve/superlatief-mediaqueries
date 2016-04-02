@@ -1,6 +1,6 @@
 {
   "name": "superlatief-mediaqueries",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A set of mediaqueries for Sass, Stylus & Less",
   "repository": "https://github.com/michaeldeboeve/superlatief-mediaqueries",
   "keywords": [
@@ -17,6 +17,7 @@
   "dependencies": {},
   "files": [
     "scss",
-    "stylus"
+    "stylus",
+    "less"
   ]
 }
