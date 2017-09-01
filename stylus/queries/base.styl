@@ -10,6 +10,5 @@ bp($min, $mq = max-width, $type = $screen)
   else
     $query = '%s (%s: %s)' % (unquote($type) unquote($mq) $min);
 
-  foo: $query
   @media $query
     {block}
